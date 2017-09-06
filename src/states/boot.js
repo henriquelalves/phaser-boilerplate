@@ -18,6 +18,8 @@ class Boot extends Phaser.State {
 	this.game.scale.pageAlignHorizontally = true;
 	this.game.scale.pageAlignVertically = true;
 
+	this.initGlobalVariables();
+	
 	// Setup game screen resolution
 	let defaultWidth = 1280;
 	let defaultHeight = 800;
@@ -26,18 +28,18 @@ class Boot extends Phaser.State {
 	let windowHeight = window.innerHeight;
 
 	let defaultRatio = defaultWidth/defaultHeight;
-	let currentRatio = windowWidth/windowHeight;
-	console.log(currentRatio);
+	let windowRatio = windowWidth/windowHeight;
+	console.log(windowRatio);
 
 	let gameWidth = defaultWidth;
 	let gameHeight = defaultHeight;
-	console.log(currentRatio, ' ', defaultRatio);
+	console.log(windowRatio, ' ', defaultRatio);
 	
-	if (currentRatio < defaultRatio) {
-	    gameHeight = Math.ceil((gameWidth / currentRatio) / 2.0) * 2;
+	if (windowRatio < defaultRatio) {
+	    gameHeight = Math.ceil((gameWidth / windowRatio) / 2.0) * 2;
 	    gameHeight = Math.min(gameHeight, 960);
 	} else {
-	    gameWidth = Math.ceil((gameHeight * currentRatio) / 2.0) * 2;
+	    gameWidth = Math.ceil((gameHeight * windowRatio) / 2.0) * 2;
 	    gameWidth = Math.min(gameWidth, 1420);
 	}
 
@@ -47,15 +49,28 @@ class Boot extends Phaser.State {
 	console.log(scaleX, ' ', scaleY);
 	
 	this.game.scale.setGameSize(gameWidth,gameHeight);
-	this.game.scale.setUserScale(scaleX,scaleY);
-	
-	
-	this.initGlobalVariables();
+	this.game.scale.setUserScale(scaleX,scaleY);	
 
+	this.game.screenSettings.windowWidth = windowWidth;
+	this.game.screenSettings.windowHeight = windowHeight;
+	this.game.screenSettings.gameWidth = gameWidth;
+	this.game.screenSettings.gameHeight = gameHeight;
+	this.game.screenSettings.offsetX = (gameWidth - defaultWidth)/2.0;
+	this.game.screenSettings.offsetY = (gameHeight - defaultHeight)/2.0;
+	
 	this.game.state.start('preloader');
     }
-
+    
     initGlobalVariables(){
+	this.game.screenSettings = {
+	    windowWidth: 0,
+	    windowHeight: 0,
+	    gameWidth: 0,
+	    gameHeight: 0,
+	    offsetX: 0,
+	    offsetY: 0,
+	};
+	
 	this.game.global = {
 
 	};
