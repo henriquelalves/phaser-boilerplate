@@ -22,11 +22,11 @@ class Boot extends Phaser.State {
 
 	// Setup resolution
 	let settings = {
-	    defaultWidth: 1280;
-	    defaultHeight: 800;
-	    useStretchThreshold: true;
-	    stretchThresholdWidth: 1420;
-	    stretchThresholdHeight: 960;
+	    defaultWidth: 1280,
+	    defaultHeight: 800,
+	    useStretchThreshold: true,
+	    stretchThresholdWidth: 1420,
+	    stretchThresholdHeight: 960
 	};
 
 	this.setupResolutionSettings(settings);
