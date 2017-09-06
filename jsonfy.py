@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
-# Special thanks to user Chris Down on stackoverflow! https://unix.stackexchange.com/questions/164602/how-to-output-the-directory-structure-to-json-format
-# And also, special thanks to user Sergey on askubuntu! https://askubuntu.com/questions/209449/is-there-a-way-to-batch-export-svgs-to-pngs
+# Credits: https://unix.stackexchange.com/questions/164602/how-to-output-the-directory-structure-to-json-format
 
 import os
 import errno
