@@ -4,12 +4,35 @@
   <meta charset="utf-8">
   <title>Boilerplate</title>
 
+  <!-- Cordova code; feel free to delete this -->
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    function onLoad(){
+    document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    function onDeviceReady() {
+    AndroidFullScreen.immersiveMode();
+    }
+
+  </script>
+
+  <!-- Loading any fonts here -->
+  <style>
+    /*@font-face {
+    font-family: '';
+    src: url('assets/.woff') format('woff'),
+    url('assets/.ttf') format('opentype');
+    }*/
+  </style>
+  
   <!-- build:css main.min.css -->
   <link rel="stylesheet" href="css/main.css">
   <!-- /build -->
+  
 </head>
 
-<body>
+<body onload="onLoad()">
 
   <div id="game_canvas" class="game"></div>
 
@@ -21,9 +44,7 @@
   <script src="node_modules/phaser/build/phaser.min.js"></script>
   <!-- /build -->
   
-  <!-- build:js libs/phaser-state-transition.min.js -->
   <script src="libs/phaser-state-transition.min.js"></script>
-  <!-- /build -->
 
   <!-- build:js bundle.min.js -->
   <script src="bundle.js"></script>
