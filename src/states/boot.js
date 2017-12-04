@@ -9,6 +9,9 @@ class Boot extends Phaser.State {
 
 	// JSON
 	this.game.load.json('assets', './assets.json');
+
+	// Plugins
+	this.game.add.plugin(PhaserInput.Plugin);
     }
 
     create() {
